@@ -110,7 +110,7 @@ npm run dev
 
 ## 📸 Screenshots
 
-https://github.com/ashu-2024/recipe-sharing-mern/blob/main/frontend/food-blog-app/src/assets/homepage.png
+![Movie Search App Screenshot](https://github.com/ashu-2024/recipe-sharing-mern/blob/main/frontend/food-blog-app/src/assets/homepage.png)
 
 ---
 
