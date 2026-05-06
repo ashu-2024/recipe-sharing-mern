@@ -110,7 +110,7 @@ npm run dev
 
 ## 📸 Screenshots
 
-*Add screenshots of your project here (UI, login page, recipe page, etc.)*
+https://github.com/ashu-2024/recipe-sharing-mern/blob/main/frontend/food-blog-app/src/assets/homepage.png
 
 ---
 
