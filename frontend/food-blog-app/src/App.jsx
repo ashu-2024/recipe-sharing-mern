@@ -8,7 +8,8 @@ import  AddFoodRecipe  from './pages/AddFoodRecipe'
 import EditRecipe from './pages/EditRecipe'
 import RecipeDetails from './pages/RecipeDetails'
 
-const API = "https://recipe-sharing-mern-backend.onrender.com"
+//const API = "https://recipe-sharing-mern-backend.onrender.com"
+const API = "http://localhost:5000"
 
 
 const getAllRecipes=async()=>{
