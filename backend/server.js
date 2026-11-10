@@ -1,19 +1,33 @@
-const express=require("express")
-const app=express()
-const dotenv=require("dotenv").config()
-const connectDb=require("./config/connectionDb")
-const cors=require("cors")
 
-const PORT = process.env.PORT || 3000
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
+const express = require("express");
+const app = express();
+require("dotenv").config();
+const connectDb = require("./config/connectionDb");
+const cors = require("cors");
+
+const PORT = process.env.PORT || 5000;
+
+app.use(express.json());
+
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "*"
+}));
+
+app.use(express.static("public"));
+
+app.use("/", require("./routes/user"));
+app.use("/recipe", require("./routes/recipe"));
+
 connectDb()
-
-app.use(express.json())
-app.use(cors())
-app.use(express.static("public"))
-
-app.use("/",require("./routes/user"))
-app.use("/recipe",require("./routes/recipe"))
-
-app.listen(PORT,(err)=>{
-    console.log(`app is listening on port ${PORT}`)
-})
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    })
+    .catch((error) => {
+        console.error("Database connection failed:", error);
+        process.exit(1);
+    });
