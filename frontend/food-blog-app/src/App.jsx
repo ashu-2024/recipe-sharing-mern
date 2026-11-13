@@ -1,3 +1,4 @@
+import { API } from "./config";
 import React from 'react'
 import './App.css'
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
@@ -9,7 +10,7 @@ import EditRecipe from './pages/EditRecipe'
 import RecipeDetails from './pages/RecipeDetails'
 
 //const API = "https://recipe-sharing-mern-backend.onrender.com"
-const API = "http://localhost:5000"
+//const API = "http://localhost:5000"
 
 
 const getAllRecipes=async()=>{
