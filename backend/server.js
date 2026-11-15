@@ -12,10 +12,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
-// app.use(cors({
-//     origin: process.env.FRONTEND_URL || "*"
-// }));
-
 app.use(cors({
     origin: [
         process.env.FRONTEND_URL,
@@ -27,6 +23,14 @@ app.use(express.static("public"));
 
 app.use("/", require("./routes/user"));
 app.use("/recipe", require("./routes/recipe"));
+
+app.use((err, req, res, next) => {
+    console.error("SERVER ERROR:", err.stack || err);
+
+    res.status(500).json({
+        message: err.message || "Internal Server Error"
+    });
+});
 
 connectDb()
     .then(() => {
